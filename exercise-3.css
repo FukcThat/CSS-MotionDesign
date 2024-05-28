@@ -1,0 +1,44 @@
+html {
+    font-size: 16px;
+    font-family: 'Figtree', sans-serif;
+    line-height: 1.5;
+    background-color: #8c8587;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 3rem auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: #151618;
+}
+
+.btn {
+    color: white;
+    background-color: #c9487e;
+    display: inline-block;
+    padding: .75rem 1.5rem;
+    border-radius: .5rem;
+    border: 1px solid #c9487e;
+    transition: background-color 0.5s ease-in-out 1s, color 0.5s ease-in-out 1s, border 0.5s ease-in-out 1s;
+}
+
+.btn:hover {
+    background-color: #e0d2d6;
+    color: rgb(31, 28, 29);
+    border: #151618 1px solid;
+}
