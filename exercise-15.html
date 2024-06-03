@@ -1,30 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Exercise #15 || Animated logo</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise #15 || Animated logo</title>
 
-	<!-- Reset -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css">
+    <!-- Reset -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+    />
 
-	<style>
-		.container {
-			display: grid;
-			width: 100%;
-			height: 100vh;
-			place-content: center;
-			background-color: #F6E9FE;
-		}
+    <link rel="stylesheet" href="exercise-15.css" />
+  </head>
 
-		/* Air */
-	</style>
-</head>
-<body>
-	<div class="container">
-		<!-- Air -->
-	</div>
+  <body>
+    <div class="container">
+      <!-- Air -->
+      <svg width="370" height="240" viewBox="0 0 370 240" fill="none">
+        <path
+          id="LeftHalf"
+          d="M127 115L127 170.5C127 202.809 100.809 229 68.5 229V229C36.1913 229 10 202.809 10 170.5L10 115"
+          stroke="black"
+        />
+        <rect
+          id="Circo"
+          x="127"
+          y="10"
+          height="219"
+          width="116"
+          rx="60"
+          stroke="black"
+        />
+        <path
+          id="RightHalf"
+          d="M243 124V68.5C243 36.1913 269.191 10 301.5 10V10C333.809 10 360 36.1913 360 68.5V124"
+          stroke="black"
+        />
+      </svg>
+    </div>
 
-	<!-- Air -->
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin3.min.js"></script>
+
+    <script>
+      gsap.set("#Circo", {
+        scale: 0,
+        transformOrigin: "50% 50%",
+      });
+
+      let timeLine = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 1.5,
+        yoyo: true,
+      });
+
+      timeLine.to("#Circo", {
+        scale: 1,
+        rotation: 360,
+        duration: 1.2,
+        ease: "elastic.out",
+      });
+
+      timeLine.fromTo(
+        "#LeftHalf",
+        {
+          drawSVG: "0% 0%",
+        },
+        {
+          drawSVG: "0% 100%",
+          duration: 1.2,
+          ease: "power4.inOut",
+        }
+      );
+
+      timeLine.fromTo(
+        "#RightHalf",
+        {
+          drawSVG: "0% 0%",
+        },
+        {
+          drawSVG: "0% 100%",
+          duration: 1.2,
+          ease: "power4.inOut",
+        }
+      );
+
+      timeLine.to("#Circo, #LeftHalf, #RightHalf", {
+        stroke: "white",
+        duration: 0.5,
+      });
+    </script>
+    <!-- Air -->
+  </body>
 </html>
