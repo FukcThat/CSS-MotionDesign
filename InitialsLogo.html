@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initials Logo</title>
+
+    <link rel="stylesheet" href="InitialsLogo.css" />
+  </head>
+  <body>
+    <div id="Logo">
+      <svg
+        width="240"
+        height="91"
+        viewBox="0 0 240 91"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          id="S"
+          d="M198.5 83.5V83.5C217.278 83.5 232.5 68.2776 232.5 49.5V35.5C232.5 20.036 219.964 7.49997 204.5 7.49997V7.49997C189.036 7.49997 176.5 20.036 176.5 35.5L176.5 48.5V53.5C176.5 70.0685 163.068 83.5 146.5 83.5V83.5C129.931 83.5 116.5 70.0685 116.5 53.5V48.5L116.5 42.5C116.5 23.17 132.17 7.49997 151.5 7.49997V7.49997"
+          stroke="#4B2C2C"
+          stroke-width="15"
+          stroke-linecap="round"
+        />
+        <path
+          id="E"
+          d="M89.6239 7.49999V7.49999C70.2255 7.49999 54.4999 23.2255 54.4999 42.6239V45.5C54.4999 66.4868 71.5131 83.5 92.4999 83.5H117M141.277 7.49999V7.49999C162.264 7.49999 179.5 24.5132 179.5 45.5V45.5C179.5 66.4868 162.487 83.5 141.5 83.5L117 83.5M117 83.5L117 45.5"
+          stroke="#828282"
+          stroke-width="15"
+          stroke-linecap="round"
+        />
+        <path
+          id="C"
+          d="M95.1865 7.49999V7.49999C115.794 7.49999 132.5 24.5459 132.5 45.1536V45.1536C132.5 66.1404 115.487 83.5 94.4999 83.5L45.4999 83.5C24.5131 83.5 7.49995 66.4868 7.49995 45.5L7.49995 42.0149C7.49995 22.9528 22.9528 7.49999 42.0149 7.49999V7.49999"
+          stroke="#E4BABA"
+          stroke-width="15"
+          stroke-linecap="round"
+        />
+      </svg>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin3.min.js"></script>
+
+    <script>
+      let timeLine = gsap.timeline({
+        repeat: -1,
+        yoyo: true,
+      });
+
+      gsap.set("#E", {
+        x: 50,
+        y: -10,
+        scale: 0.25,
+        opacity: 0,
+      });
+
+      timeLine.to("#E", {
+        x: 0,
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 1.25,
+        delay: 0.75,
+        ease: "elastic.out",
+      });
+
+      timeLine.fromTo(
+        "#C",
+        {
+          x: 45,
+          opacity: 0.25,
+          drawSVG: "100% 100%",
+        },
+        {
+          x: 0,
+          opacity: 1,
+          drawSVG: "0% 100%",
+          duration: 0.75,
+          ease: "power3.inOut",
+        }
+      );
+
+      timeLine.fromTo(
+        "#S",
+        {
+          x: -45,
+          opacity: 0.25,
+          drawSVG: "100% 100%",
+        },
+        {
+          x: 0,
+          opacity: 1,
+          drawSVG: "0% 100%",
+          duration: 0.75,
+          ease: "power3.inOut",
+        }
+      );
+      //   timeLine.fromTo(
+      //     "#C",
+      //     {
+      //       drawSVG: "100% 100%",
+      //     },
+      //     {
+      //       drawSVG: "0% 100%",
+      //       duration: 1.2,
+      //       ease: "power4.inOut",
+      //     }
+      //   );
+    </script>
+  </body>
+</html>
