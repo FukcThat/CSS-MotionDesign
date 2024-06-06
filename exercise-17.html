@@ -1,170 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Exercise #17 || Mouse follow effect</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise #17 || Mouse follow effect</title>
 
-	<!-- Reset -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css">
+    <!-- Reset -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+    />
 
-	<!-- Google Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap"
+      rel="stylesheet"
+    />
 
-	<style>
-		:root {
-			--gray-100: #262626;
-			--accent: #D11F3E;
-		}
+    <link rel="stylesheet" href="exercise-17.css" />
+  </head>
+  <body>
+    <section id="hero">
+      <header>
+        <div class="header-side-content">
+          <a href="/"><img src="images/logo-cc.svg" alt="Logo" /></a>
+        </div>
 
-		html {
-			font-size: 16px;
-			font-family: 'Rubik', sans-serif;
-			line-height: 1.2;
-		}
+        <nav>
+          <ul>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
 
-		body {
-			color: var(--gray-100);
-		}
+        <div class="header-side-content">
+          <a href="" class="button">
+            Start a Project
+            <svg width="12" height="12" viewBox="0 0 12 12">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.28033 0.96967C6.98744 0.676777 6.51256 0.676777 6.21967 0.96967C5.92678 1.26256 5.92678 1.73744 6.21967 2.03033L9.43934 5.25H1.5C1.08579 5.25 0.75 5.58579 0.75 6C0.75 6.41421 1.08579 6.75 1.5 6.75H9.43934L6.21967 9.96967C5.92678 10.2626 5.92678 10.7374 6.21967 11.0303C6.51256 11.3232 6.98744 11.3232 7.28033 11.0303L11.7803 6.53033C12.0732 6.23744 12.0732 5.76256 11.7803 5.46967L7.28033 0.96967Z"
+              />
+            </svg>
+          </a>
+        </div>
+      </header>
 
-		p,
-		a {
-			letter-spacing: -0.32px;
-		}
+      <h1>
+        He's just an <br />
+        itty-bitty <br />
+        <span>Gitty</span>
+      </h1>
 
-		h1 {
-			font-size: 5.625rem;
-			text-align: center;
-			font-weight: 400;
-			letter-spacing: -3.6px;
-		}
+      <!-- Air -->
+      <button class="magnet">
+        <span class="text">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="5rem"
+            height="5rem"
+            viewBox="0 0 48 48"
+          >
+            <path
+              fill="none"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m22.571 23.965l.276-.893a.734.734 0 0 1 .883-.494l1.056.27m-6.753-9.3a9.85 9.85 0 0 0-3.336 2.045a9.2 9.2 0 0 0-1.63 2.025m4.967-4.07s3.075-7.265 4.213-7.265q.157 0 .325.064m-4.538 7.201a11.35 11.35 0 0 1 5.817-.53m3.672 1.375a8.6 8.6 0 0 1 2.628 2.538c2.496 3.768 2.362 8.252-.405 11.65m-2.223-14.188c-1.283-3.078-3.42-7.464-4.951-8.046m4.951 8.046a10.2 10.2 0 0 0-3.672-1.374m-10.784 4.6c-3.392 1.82-7.612 3.636-7.566 4.786a1 1 0 0 0 .014.108m7.552-4.895c-.507.859-.634 2.618-.547 4.428m1.039 5.423c.437.662.956 1.292 1.553 1.874a10.1 10.1 0 0 0 5.565 2.772m-7.118-4.646c-.465-.704-.928-3.105-1.04-5.423m1.04 5.423c-3.985-1.625-7.774-3.778-8.044-4.956m15.162 9.602c2.983.447 6.111-.46 8.387-2.772q.364-.37.682-.761m-9.07 3.533c-.12 2.516 1.815 9.602 1.815 9.602m7.255-13.135l12.754 5.01M12.52 22.046s-4.555-.425-7.005.467M22.571 6.347s.106 5.369 1.28 6.672m-8.031 9.495c.925 1.974 1.247 1.682 2.141 1.334c1.325-.515.77-.946.19-2.169c-.88-1.852-1.412-1.774-2.17-1.43c-.757.344-.868.928-.161 2.264m9.272-4.089c-.376-.702-.85-1.494-.155-1.983c1.08-.894 1.212-.105 1.993.951c.882 1.194 1.303 1.476.273 2.243c-.92.685-1.539-.142-2.111-1.21"
+            />
+          </svg>
+        </span>
+        <div id="debugger"></div>
+      </button>
+      <!-- End Air -->
+    </section>
 
-		.button {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-			gap: .5rem;
-			color: var(--gray-100);
-			text-decoration: none;
-			font-weight: 700;
-			transition: .2s ease-in-out;
-		}
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
-		.button:hover {
-			gap: 1rem;
-			color: var(--gray-100);
-		}
+    <script>
+      const magnet = document.querySelector(".magnet");
+      const magnetText = document.querySelector(".magnet .text");
+      const dbgr = document.querySelector("#debugger");
 
-		.button:hover svg {
-			fill: var(--gray-100);
-		}
+      const activateMagnet = (event) => {
+        let boundBox = magnet.getBoundingClientRect();
+        const magnetStrength = 75;
+        const magnetTextStrength = 175;
+        const newCursorX =
+          (event.clientX - boundBox.left) / magnet.offsetWidth - 0.5;
+        const newCursorY =
+          (event.clientY - boundBox.top) / magnet.offsetHeight - 0.5;
 
-		.button svg {
-			fill: var(--gray-100);
-			transition: fill .2s ease-in-out;
-		}
+        gsap.to(magnet, {
+          duration: 1,
+          x: newCursorX * magnetStrength,
+          y: newCursorY * magnetStrength,
+          ease: Power4.easeOut,
+        });
 
-		#hero {
-			display: flex;
-			flex-direction: column;
-			height: 100dvh;
-			align-items: center;
-			justify-content: space-between;
-			padding: 4rem;
-		}
+        gsap.to(magnetText, {
+          duration: 1,
+          x: newCursorX * magnetTextStrength,
+          y: newCursorY * magnetTextStrength,
+          ease: Power4.easeOut,
+        });
+      };
 
-		header {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-		}
+      const resetMagnet = (event) => {
+        gsap.to(magnet, {
+          duration: 1.5,
+          x: 0,
+          y: 0,
+          ease: Elastic.easeOut,
+        });
 
-		.header-side-content {
-			flex: 1;
-			display: flex;
-			justify-content: flex-start;
-		}
+        gsap.to(magnetText, {
+          duration: 1.5,
+          x: 0,
+          y: 0,
+          ease: Elastic.easeOut,
+        });
+      };
 
-		.header-side-content:last-child {
-			justify-content: flex-end;
-		}
+      magnet.addEventListener("mousemove", activateMagnet);
+      magnet.addEventListener("mouseleave", resetMagnet);
+    </script>
 
-		nav ul {
-			list-style-type: none;
-			padding: 0;
-			margin: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: 2rem;
-		}
-
-		nav a {
-			text-decoration: none;
-			color: var(--gray-100);
-			transition: transform .2s ease-in-out;
-			display: inline-block;
-		}
-
-		nav a:hover {
-			transform: translate3d(.5rem, 0, 0);
-		}
-
-		h1 span {
-			background-color: var(--accent);
-			color: white;
-			border-radius: 1rem;
-			padding: .5rem 1rem;
-		}
-
-		#debugger {
-			display: none;
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			background-color: var(--gray-100);
-			color: white;
-			padding: 2rem;
-			width: 20rem;
-		}
-
-		/* Air */
-	</style>
-</head>
-<body>
-	<section id="hero">
-		<header>
-			<div class="header-side-content">
-				<a href="/"><img src="images/logo-cc.svg" alt="Logo"></a>
-			</div>
-
-			<nav>
-				<ul>
-					<li><a href="#">Work</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</nav>
-
-			<div class="header-side-content">
-				<a href="" class="button">
-					Start a Project
-					<svg width="12" height="12" viewBox="0 0 12 12">
-						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.28033 0.96967C6.98744 0.676777 6.51256 0.676777 6.21967 0.96967C5.92678 1.26256 5.92678 1.73744 6.21967 2.03033L9.43934 5.25H1.5C1.08579 5.25 0.75 5.58579 0.75 6C0.75 6.41421 1.08579 6.75 1.5 6.75H9.43934L6.21967 9.96967C5.92678 10.2626 5.92678 10.7374 6.21967 11.0303C6.51256 11.3232 6.98744 11.3232 7.28033 11.0303L11.7803 6.53033C12.0732 6.23744 12.0732 5.76256 11.7803 5.46967L7.28033 0.96967Z"/>
-					</svg>
-				</a>
-			</div>
-		</header>
-
-		<h1>Shaping Visions into Reality with <span>Boldness</span></h1>
-
-		<!-- Air -->
-		<!-- End Air -->
-	</section>
-
-	<!-- Air -->
-</body>
+    <!-- Air -->
+  </body>
 </html>
