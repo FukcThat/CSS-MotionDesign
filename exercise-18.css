@@ -16,6 +16,7 @@ html {
 body {
     background-color: var(--gray);
     font-size: 1.125rem;
+    overflow-x: hidden;
 }
 
 p {
